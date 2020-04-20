@@ -64,12 +64,14 @@ int main(void)
 //平均計算
 double ave_online(double val, double ave,int count)
 {
-    return ((count-1)*ave + val)/count;
+    double N=(double)count;
+    return ((N-1)/N*ave + val/N);
 
 }
 //分散計算
 double var_online(double val, double ave, double square_ave,int count)
 {
-    return ((count-1)*square_ave + val*val)/count - pow(((count-1)*ave + val)/count, 2);
+    double N=(double)count;
+    return ((N-1)/N*square_ave + val*val/N) - pow(((N-1)/N*ave + val/N), 2);
 
 }

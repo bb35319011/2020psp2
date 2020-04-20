@@ -54,8 +54,13 @@ int main(void)
         exit(EXIT_FAILURE);
     }
 
+    //不変分散
+    double N = (double )count;
+    double U_variance=N/(N-1)*variance;
+
     //表示
-    printf("平均：%lf\n分散：%lf\0",average,variance);
+    printf("平均：%lf\n分散：%lf\n",average,variance);
+    printf("不変分散：%lf\n",U_variance);
 
     return 0;
 

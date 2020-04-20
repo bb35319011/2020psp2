@@ -15,7 +15,7 @@ int main(void)
     FILE* fp;
 
     double average=0;//平均
-    double square_ave=0;//二条の平均
+    double square_ave=0;//二乗の平均
     double variance=0;//分散
 
     printf("input the filename of sample:");
@@ -33,7 +33,7 @@ int main(void)
 
     int count=0;
     double ave_before;//直前の平均を保持
-    double sq_ave_before;//直前の二条平均を保持
+    double sq_ave_before;//直前の二乗平均を保持
     while(fgets(buf,sizeof(buf),fp) != NULL){
         sscanf(buf,"%d, %lf",&gen,&val);
 
@@ -54,13 +54,13 @@ int main(void)
         exit(EXIT_FAILURE);
     }
 
-    //不変分散
+    //不偏分散
     double N = (double )count;
     double U_variance=N/(N-1)*variance;
 
     //表示
     printf("平均：%lf\n分散：%lf\n",average,variance);
-    printf("不変分散：%lf\n",U_variance);
+    printf("不偏分散：%lf\n",U_variance);
 
     return 0;
 

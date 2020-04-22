@@ -54,13 +54,13 @@ int main(void)
         exit(EXIT_FAILURE);
     }
 
-    //不偏分散
-    double N = (double )count;
-    double U_variance=N/(N-1)*variance;
+    double U_variance=variance/(count-1)*count;
 
     //表示
     printf("平均：%lf\n分散：%lf\n",average,variance);
-    printf("不偏分散：%lf\n",U_variance);
+    printf("母集団平均(推定値):%lf\n",average);
+    printf("母集団分散(推定値):%lf\n",U_variance);
+    
 
     return 0;
 

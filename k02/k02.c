@@ -1,9 +1,19 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#define _USE_MATH_DEFINES 
 #include <math.h>
 
 extern double p_stdnorm(double z);
+extern double Normalization(double x,double mu,double s);
+double mu_A = 170.8;//A 県平均
+double mu_B = 169.7;//B 県平均
+double s_A=5.43;    //A 県標準偏差（s^2 =分散）
+double s_B=5.5;     //B 県標準偏差
+
+double L_A=1;//尤度
+double L_B=1;
+double y_A,y_B;
 
 int main(void)
 {
@@ -11,7 +21,6 @@ int main(void)
     char fname[FILENAME_MAX];
     char buf[256];
     FILE* fp;
-    double L1=1,L2=1;
 
     printf("input the filename of sample:");
     fgets(fname,sizeof(fname),stdin);
@@ -27,10 +36,14 @@ int main(void)
     while(fgets(buf,sizeof(buf),fp) != NULL){
         sscanf(buf,"%lf",&val);
 
+        y_A =Normalization(val,mu_A,s_A);
+        y_B =Normalization(val,mu_B,s_B);
 
-    
+        L_A*=p_stdnorm(y_A);
+        L_B*=p_stdnorm(y_B);
 
-
+        //  printf("%lf, %lf\n",y_A,L_A);
+        //  printf("%lf, %lf\n\n",y_B,L_B);
 
     }
 
@@ -39,16 +52,22 @@ int main(void)
         exit(EXIT_FAILURE);
     }
 
-    printf("L_A: %f\n",max_val);
-    printf("L_B: %f\n",min_val);
+    printf("L_A: %f\n",L_A);
+    printf("L_B: %f\n",L_B);
 
     return 0;
 
 
 }
 
+//標準正規分布の確率密度関数
 double p_stdnorm(double z)
 {
-    return 1/sqrt(2*M_PI) * exp(-z*z/2);
+    return exp(-z*z/2) / sqrt(2*M_PI);
 }
 
+//標準化の計算
+double Normalization(double x,double mu,double s)
+{
+    return (x-mu)/s;
+}

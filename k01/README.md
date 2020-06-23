@@ -103,3 +103,6 @@ population variance (estimated)：
 countをdouble N にキャストして計算した理由ですが、バカデカい値が出ないようにという課題だったため「(N-1)/N」を優先して計算する必要があると考えたためでした。
 variance/count*(1-count)と順番を変更しました。
 
+[comment #20200623 kotaro]
+- 課題1完了ですが，入出力結果をReadme.mdにコピペしておいてください．
+- 

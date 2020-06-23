@@ -44,6 +44,12 @@ l55,56
     値xと、平均mu 分散sを受け取り標準化した値を返す
 
 
+## 入出力結果
+
+```
+Likelihood for A：
+Likelihood for B：
+```
 
 ## 修正履歴
 

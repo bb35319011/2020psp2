@@ -66,6 +66,11 @@ int main(int argc, char* argv[])
 
 
 ## ソースコードの説明
+l27~
+  sscanfによってargvからmu,sigma,num_dumyを取得
+
+l41
+  生成された正規分布に従う乱数をmu,sigmaを用いて正規化の逆変換を行いdummyを作る。生成数は取得したnum_dummyの数。
 
 ## 入出力結果
 
@@ -85,7 +90,16 @@ Num of dummy data: 5
 ```
 
 コンパイル時に`-DCONST_SEED`をつけない場合を以下に示す．
-
+============================================
+template mean: 170.8
+template standard deviation: 5.43
+Num of dummy data: 5
+============================================
+166.66
+164.31
+161.72
+175.55
+160.46
 
 
 ## 修正履歴

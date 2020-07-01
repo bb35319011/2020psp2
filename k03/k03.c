@@ -12,16 +12,21 @@
 extern double r_unif(void);
 extern double r_stdnorm(void);
 
+const double mu_A = 170.8;//A 県平均
+const double s_A=5.43;    //A 県標準偏差（s^2 =分散）
+
+
 int main(int argc, char* argv[])
 {
     int num_dummy;
     double mu;
     double sigma;
     int i;
-    double dummy;
+    double dummy=0;
 
-
-
+    sscanf(argv[1],"%lf",&mu);
+    sscanf(argv[2],"%lf",&sigma);
+    sscanf(argv[3],"%d",&num_dummy);
 
 
     printf("============================================\n");
@@ -31,9 +36,9 @@ int main(int argc, char* argv[])
     printf("============================================\n");
 
     srand(RAND_SEED);
-    for(  ){
+    for(i=0; i<num_dummy; i++  ){
         /* r_stdnormを使って，1人のデータを捏造 */
-        dummy =   ;
+        dummy = r_stdnorm() * s_A +mu_A  ;
         printf("%5.2lf\n",dummy);
     }
 

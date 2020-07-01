@@ -57,7 +57,7 @@ l:37~       メイン処理ループ：
 
 l:52~l:55   ファイルのクローズ
 
-l:57~l:59   不変分散の計算
+l:57~l:59   不偏分散の計算
 
 l:58        平均、分散の表示
 
@@ -73,12 +73,10 @@ l:71~l:75
 ## 入出力結果
 
 ```
-input the filename of sample:../sample/heights_male.csv
-the filename of sample: ../sample/heights_male.csv
-sample mean：
-sample variance：
-population mean (estimated)：
-population variance (estimated)：
+- 平均：173.888750
+- 分散：25.361711
+- 母平均推定：173.888750
+- 母分散推定：28.984831
 ```
 
 ## 修正履歴
@@ -110,3 +108,8 @@ variance/count*(1-count)と順番を変更しました。
 - 分散：25.361711
 - 母平均推定：173.888750
 - 母分散推定：28.984831
+
+[comment #20200701]
+- OKです.　
+- 次から出力結果は 入出力結果 のところに書いてください. 今回は修正しておきました. 
+

@@ -37,6 +37,9 @@ int main(void)
     while(fgets(buf,sizeof(buf),fp) != NULL){
         sscanf(buf,"%d, %lf",&gen,&val);
 
+        if (gen != 1 )
+            continue;   // 1男性でなければスキップ
+
         count ++;
         ave_before = average;
         sq_ave_before=square_ave;

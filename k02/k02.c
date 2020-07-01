@@ -6,10 +6,10 @@
 
 extern double p_stdnorm(double z);
 extern double Normalization(double x,double mu,double s);
-double mu_A = 170.8;//A 県平均
-double mu_B = 169.7;//B 県平均
-double s_A=5.43;    //A 県標準偏差（s^2 =分散）
-double s_B=5.5;     //B 県標準偏差
+const double mu_A = 170.8;//A 県平均
+const double mu_B = 169.7;//B 県平均
+const double s_A=5.43;    //A 県標準偏差（s^2 =分散）
+const double s_B=5.5;     //B 県標準偏差
 
 double L_A=1;//尤度
 double L_B=1;

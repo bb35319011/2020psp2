@@ -25,7 +25,7 @@ int main(int argc, char* argv[])
 
     if(argc != 4){
         printf("error\n:mu, sigma, num_dummy\n");
-        return 0;
+        return -1;
     }
 
     sscanf(argv[1],"%lf",&mu);

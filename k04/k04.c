@@ -79,7 +79,7 @@ int main(){
         {
             printf("---\n");
             printf("ID:%d\n",stData[i].num);
-            if(sp[i].gen==1)
+            if(stData[i].gen==1)
                 printf("gender:male\n");
             else
                 printf("gender:female\n");

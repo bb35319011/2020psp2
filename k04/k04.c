@@ -13,8 +13,9 @@ int main(){
     int num;
     int gen;
     double height;
-    int imput;
+    int input;
     int i;
+    int count;
     struct student* sp;
 
     //ファイルオープン処理===========================
@@ -51,6 +52,7 @@ int main(){
     fgets(buf1,sizeof(buf1),fp1);//一行目の[gender, hight(cm)]を読み飛ばす
 
     sp=stData;
+    count=0;
     while (1){
         if(fgets(buf1,sizeof(buf1),fp1) ==NULL)//height読み込み,最後までロードしたら終了
             break;
@@ -59,28 +61,29 @@ int main(){
         sscanf(buf1,"%d, %lf",&gen,&height);
         sscanf(buf2,"%d",&num);
 
-        (*sp).gen=gen;
-        (*sp).height=height;
-        (*sp).num=num;
+        sp->gen=gen;
+        sp->height=height;
+        sp->num=num;
 
         sp++;
+        count++;
     }
 
     //検索numの入力
     printf("which ID's data do you want?:");
-    scanf("%d",&imput);
+    scanf("%d",&input);
 
-    for (sp=stData; sp!=NULL; sp++)
+    for (i=0; i<count; i++)
     {
-        if ((*sp).num == imput)
+        if (stData[i].num == input)
         {
             printf("---\n");
-            printf("ID:%d\n",(*sp).num);
-            if((*sp).gen==1)
+            printf("ID:%d\n",stData[i].num);
+            if(sp[i].gen==1)
                 printf("gender:male\n");
             else
                 printf("gender:female\n");
-            printf("height:%.3lf\n",(*sp).height);
+            printf("height:%.3lf\n",stData[i].height);
             printf("---\n");
             return 0;
         }
